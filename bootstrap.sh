@@ -15,14 +15,6 @@ kubectl apply -f .infrastructure/pv.yml
 echo "Создаём PersistentVolumeClaim..."
 kubectl apply -f .infrastructure/pvc.yml
 
-# Создание ConfigMap
-echo "Создаём ConfigMap..."
-kubectl apply -f .infrastructure/configMap.yml
-
-# Создание Secret
-echo "Создаём Secret..."
-kubectl apply -f .infrastructure/secret.yml
-
 # Создание Deployment
 echo "Создаём Deployment..."
 kubectl apply -f .infrastructure/deployment.yml
