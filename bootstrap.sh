@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 # Проверка наличия kubectl
 if ! command -v kubectl &> /dev/null
@@ -10,22 +9,22 @@ fi
 
 # Создание PV
 echo "Создаём PersistentVolume..."
-kubectl apply -f pv.yml
+kubectl apply -f .infrastructure/pv.yml
 
 # Создание PVC
 echo "Создаём PersistentVolumeClaim..."
-kubectl apply -f pvc.yml
+kubectl apply -f .infrastructure/pvc.yml
 
-# Создание ConfigMap (если ещё не создан)
+# Создание ConfigMap
 echo "Создаём ConfigMap..."
-kubectl apply -f app-config.yml
+kubectl apply -f .infrastructure/configMap.yml
 
-# Создание Secret (если ещё не создан)
+# Создание Secret
 echo "Создаём Secret..."
-kubectl apply -f app-secret.yml
+kubectl apply -f .infrastructure/secret.yml
 
 # Создание Deployment
 echo "Создаём Deployment..."
-kubectl apply -f deployment.yml
+kubectl apply -f .infrastructure/deployment.yml
 
 echo "Все ресурсы успешно созданы!"
